@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, ChevronLeft, ChevronRight, CheckSquare, Square, ExternalLink, User, Play, Info } from 'lucide-react';
+import { Menu, X, ChevronLeft, ChevronRight, CheckSquare, Square, ExternalLink, User, Play, Info, ClipboardList, Building2, Map as MapIcon, Navigation } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -309,19 +309,19 @@ export default function App() {
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
-              {[
-                { title: "Add or upload class schedules for a particular day of the week", img: "https://picsum.photos/seed/bp-anim1/400/600" },
-                { title: "Get specific information about the building that a class is located in", img: "https://picsum.photos/seed/bp-anim2/400/600" },
-                { title: "Curate custom routing profiles to a specific building", img: "https://picsum.photos/seed/bp-anim3/400/600" },
-                { title: "Check the locations of accessible features around campus", img: "https://picsum.photos/seed/bp-anim4/400/600" },
+              {[                
+                { title: "Add or upload class schedules for a particular day of the week", icon: <ClipboardList className="w-16 h-16 text-blue-600" /> },
+                { title: "Get specific information about the building that a class is located in", icon: <Building2 className="w-16 h-16 text-blue-600" /> },
+                { title: "Curate custom routing profiles to a specific building", icon: <Navigation className="w-16 h-16 text-blue-600" /> },
+                { title: "Check the locations of accessible features around campus", icon: <CheckSquare className="w-16 h-16 text-blue-600" /> },
               ].map((item, i) => (
                 <motion.div 
                   key={i}
                   whileHover={{ y: -10 }}
-                  className="bg-white p-6 rounded-3xl shadow-lg border border-gray-100 flex flex-col gap-4"
+                  className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex flex-col items-center text-center gap-6"
                 >
-                  <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-gray-100">
-                    <img src={item.img} alt={item.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                  <div className="w-24 h-24 rounded-2xl bg-blue-50 flex items-center justify-center shadow-inner">
+                    {item.icon}
                   </div>
                   <p className="font-bold text-gray-800 leading-tight">{item.title}</p>
                 </motion.div>
