@@ -375,7 +375,7 @@ export default function App() {
               </div>
               <div className="flex flex-col items-end">
                 <SpeechBubble 
-                  quote="going through the library is super easy because of the accessible buttons. Some of them like this [button with a motion sensor] simply require you to waive your hand over a sensor rather than push an actual button, which is awesome…since I have extreme hand weakness"
+                  quote="Going through the library is super easy because of the accessible buttons. Some of them like this [button with a motion sensor] simply require you to waive your hand over a sensor rather than push an actual button, which is awesome…since I have extreme hand weakness"
                   participant="Participant 2: college student with Charcot-Marie-Tooth disease"
                   align="right"
                 />
@@ -383,7 +383,7 @@ export default function App() {
               </div>
               <div className="flex flex-col items-start">
                 <SpeechBubble 
-                  quote="just the physical act of getting to my classes proved to be a challenge, particularly on a relatively older campus like [alma mater’s]. I needed to schedule my time appropriately to make sure that I can get everywhere I needed to go in a reasonable timeframe. I also needed to become a good self-advocate when something was wrong"
+                  quote="Just the physical act of getting to my classes proved to be a challenge, particularly on a relatively older campus like [alma mater’s]. I needed to schedule my time appropriately to make sure that I can get everywhere I needed to go in a reasonable timeframe. I also needed to become a good self-advocate when something was wrong"
                   participant="Participant 3: college student with cerebral palsy"
                 />
                 <GradientArrow className="ml-12 -mt-4 mb-4 rotate-0" />
@@ -415,15 +415,15 @@ export default function App() {
           <div className="mb-32">
             <h3 className="text-2xl font-bold text-blue-600 mb-6 uppercase tracking-widest">Task Analysis</h3>
             <p className="text-lg text-gray-600 mb-12">
-              With the aforementioned themes in mind, we came up with a list of tasks that we thought would be important for students with physical disabilities to be able to accomplish via our interface including:
+              With the aforementioned themes in mind, we came up with a list of tasks that we thought would be important for students with physical disabilities to be able to accomplish via our interface which includes:
             </p>
             <ClipboardWidget items={[
-              "Being able to locate the building that houses a classroom and identifying accessible features within buildings",
-              "Being able to check the amount of foot traffic in a campus building at a given time",
-              "Being able to generate personalized, accessible routes between locations on campus",
-              "Being able to locate accessible parking spots closest to a given classroom",
-              "Being able to report accessibility issues to campus disability services",
-              "Being able to receive real time alerts about accessibility disruptions along a route"
+              "Locating the building that houses a classroom and identifying accessible features within buildings",
+              "Checking the amount of foot traffic in a campus building at a given time",
+              "Generating personalized, accessible routes between locations on campus",
+              "Locating accessible parking spots closest to a given classroom",
+              "Reporting accessibility issues to campus disability services",
+              "Receiving real time alerts about accessibility disruptions along a route"
             ]} />
           </div>
 
@@ -474,7 +474,7 @@ export default function App() {
           <div className="mb-32">
             <h3 className="text-2xl font-bold text-blue-600 mb-6 uppercase tracking-widest">Testing</h3>
             <p className="text-lg text-gray-600 mb-12">
-              In order to test the learnability and usability of our interface, we conducted heuristic testing, usability testing, and UI inspections on our paper prototype. This process of testing revealed key problems with our design including:
+              In order to test the learnability and usability of our interface, we conducted heuristic testing, usability testing, and UI inspections on our paper prototype. This process of testing revealed key problems with our design:
             </p>
             <ClipboardWidget xed items={[
               "The homepage for our interface was a schedule view of a student’s schedule and we figured that due to FERPA regulations, outside parties would not have access to individual schedule data",
