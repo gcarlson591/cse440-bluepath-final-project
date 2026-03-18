@@ -285,25 +285,14 @@ export default function App() {
             </div>
             <div className="bg-gray-50 p-8 rounded-3xl shadow-xl border border-gray-100">
               <div className="flex flex-col gap-6">
-                <div className="flex justify-between items-end border-b-2 border-blue-600 pb-2">
-                  <h3 className="text-2xl font-black text-blue-600 uppercase">Expectation</h3>
-                  <h3 className="text-2xl font-black text-emerald-600 uppercase">Reality</h3>
-                </div>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
-                    <div className="text-xs font-bold text-gray-400 mb-2">Winter 2026 Schedule</div>
-                    <div className="h-32 bg-blue-50 rounded flex items-center justify-center text-blue-400 font-bold">GUG 220</div>
-                  </div>
                   <div className="relative">
                     <img 
-                      src="https://picsum.photos/seed/classroom-reality/600/800" 
+                      src="/cse440poster1.png" 
                       alt="Actual classroom view" 
                       className="rounded-xl shadow-sm w-full h-full object-cover"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-lg border border-gray-100 max-w-[150px]">
-                      <p className="text-xs font-bold text-blue-600 italic">"This should be a second floor classroom"</p>
-                    </div>
                   </div>
                 </div>
               </div>
