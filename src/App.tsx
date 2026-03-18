@@ -537,10 +537,10 @@ export default function App() {
           <SectionHeading>The people who paved BluePath</SectionHeading>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
             {[
-              { name: "Gianna Carlson", role: "Designer & Developer", img: "https://picsum.photos/seed/gianna/400/400" },
-              { name: "Wenting Zhang", role: "Designer & Developer", img: "https://picsum.photos/seed/wenting/400/400" },
-              { name: "Ian Limasi", role: "Designer & Developer", img: "https://picsum.photos/seed/ian/400/400" },
-              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "https://picsum.photos/seed/yuta/400/400" },
+              { name: "Gianna Carlson", role: "Designer & Developer", img: "/gianna.png" },
+              { name: "Wenting Zhang", role: "Designer & Developer", img: "/wenting.png" },
+              { name: "Ian Limasi", role: "Designer & Developer", img: "/ian.png" },
+              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
             ].map((person, i) => (
               <div key={i} className="flex flex-col items-center text-center group">
                 <p className="text-lg font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">{person.name}</p>
