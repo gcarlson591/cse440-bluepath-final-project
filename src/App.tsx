@@ -55,7 +55,7 @@ const Logo = () => {
             </linearGradient>
           </defs>
           <motion.path
-            d="M 115 4 Q 60 20 15 4"
+            d="M 95 4 Q 55 20 15 4"
             fill="none"
             stroke="url(#logo-gradient)"
             strokeWidth="2.5"
@@ -656,9 +656,9 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { name: "Gianna Carlson", role: "Designer & Developer", img: "/gianna.png" },
-              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
               { name: "Wenting Zhang", role: "Designer & Developer", img: "/wenting.png" },
               { name: "Ian Limasi", role: "Designer & Developer", img: "/ian.png" },
+              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
             ].map((person, i) => (
               <motion.div 
                 key={i} 
