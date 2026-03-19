@@ -52,7 +52,7 @@ const Logo = () => {
             </linearGradient>
           </defs>
           <motion.path
-            d="M 130 4 Q 85 20 40 4"
+            d="M 115 4 Q 62 18 10 4"
             fill="none"
             stroke="url(#logo-gradient)"
             strokeWidth="2.5"
@@ -453,9 +453,9 @@ export default function App() {
                 <motion.div 
                   key={i}
                   whileHover={{ y: -10 }}
-                  className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-gray-100 flex flex-col items-center text-center gap-8 group"
+                  className="bg-white p-8 rounded-none shadow-xl border border-gray-100 flex flex-col items-center text-center gap-8 group"
                 >
-                  <div className="w-full aspect-[9/19] rounded-[2rem] bg-blue-50 flex items-center justify-center shadow-inner overflow-hidden relative border-4 border-gray-50">
+                  <div className="w-full aspect-[514/1126] rounded-none bg-blue-50 flex items-center justify-center shadow-inner overflow-hidden relative border-4 border-gray-50">
                     {item.gif ? (
                       <img 
                         src={item.gif} 
