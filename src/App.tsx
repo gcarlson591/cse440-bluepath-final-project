@@ -581,18 +581,18 @@ export default function App() {
             <p className="text-lg text-gray-600 mb-12">
               Cleaning up the aforementioned issues and transferring from paper to digital led to this final design:
             </p>
-            <div className="max-w-[440px] mx-auto aspect-[9/19.5] bg-gray-900 rounded-[4.5rem] p-3 shadow-2xl border-[14px] border-gray-800 relative overflow-hidden">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-9 bg-gray-800 rounded-b-[2.5rem] z-10" />
-              <div className="w-full h-full bg-black rounded-[3.5rem] overflow-hidden relative p-4">
+            <div className="max-w-md mx-auto aspect-[9/19] bg-gray-900 rounded-[3rem] p-4 shadow-2xl border-[8px] border-gray-800 relative overflow-hidden">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-800 rounded-b-2xl z-10" />
+              <div className="w-full h-full bg-white rounded-[2rem] overflow-hidden relative">
                 <video 
                   src="/bluepathanimation.mp4" 
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                   autoPlay 
                   loop 
                   muted 
                   playsInline
                 />
-                <div className="absolute inset-0 bg-blue-600/5 pointer-events-none" />
+                <div className="absolute inset-0 bg-blue-600/10 pointer-events-none" />
               </div>
             </div>
           </div>
