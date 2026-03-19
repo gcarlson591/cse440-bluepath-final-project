@@ -43,7 +43,7 @@ const Logo = () => {
       </div>
       
       {/* Arrow animation from 'a' to 'b' */}
-      <div className="w-full h-6 relative -mt-1">
+      <div className="w-full h-6 relative -mt-2">
         <svg className="w-full h-full overflow-visible" viewBox="0 0 200 24">
           <defs>
             <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -429,20 +429,50 @@ export default function App() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
               {[                
-                { title: "Add or upload class schedules for a particular day of the week", icon: <ClipboardList className="w-16 h-16 text-blue-600" /> },
-                { title: "Get specific information about the building that a class is located in", icon: <Building2 className="w-16 h-16 text-blue-600" /> },
-                { title: "Curate custom routing profiles to a specific building", icon: <Navigation className="w-16 h-16 text-blue-600" /> },
-                { title: "Check the locations of accessible features around campus", icon: <CheckSquare className="w-16 h-16 text-blue-600" /> },
+                { 
+                  title: "Add or upload class schedules for a particular day of the week", 
+                  icon: <ClipboardList className="w-16 h-16 text-blue-600" />,
+                  gif: "/animation1.gif"
+                },
+                { 
+                  title: "Get specific information about the building that a class is located in", 
+                  icon: <Building2 className="w-16 h-16 text-blue-600" />,
+                  gif: "/animation2.gif"
+                },
+                { 
+                  title: "Curate custom routing profiles to a specific building", 
+                  icon: <Navigation className="w-16 h-16 text-blue-600" />,
+                  gif: "/animation3.gif"
+                },
+                { 
+                  title: "Check the locations of accessible features around campus", 
+                  icon: <CheckSquare className="w-16 h-16 text-blue-600" />,
+                  gif: "/animation4.gif"
+                },
               ].map((item, i) => (
                 <motion.div 
                   key={i}
                   whileHover={{ y: -10 }}
-                  className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex flex-col items-center text-center gap-6"
+                  className="bg-white p-6 rounded-3xl shadow-lg border border-gray-100 flex flex-col items-center text-center gap-6 group"
                 >
-                  <div className="w-24 h-24 rounded-2xl bg-blue-50 flex items-center justify-center shadow-inner">
-                    {item.icon}
+                  <div className="w-full aspect-video rounded-2xl bg-blue-50 flex items-center justify-center shadow-inner overflow-hidden relative">
+                    {item.gif ? (
+                      <img 
+                        src={item.gif} 
+                        alt={item.title} 
+                        className="w-full h-full object-cover"
+                        referrerPolicy="no-referrer"
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center gap-2">
+                        {item.icon}
+                        <span className="text-[10px] text-blue-300 font-mono uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                          GIF Embed Area
+                        </span>
+                      </div>
+                    )}
                   </div>
-                  <p className="font-bold text-gray-800 leading-tight">{item.title}</p>
+                  <p className="font-bold text-gray-800 leading-tight text-sm px-2">{item.title}</p>
                 </motion.div>
               ))}
             </div>
