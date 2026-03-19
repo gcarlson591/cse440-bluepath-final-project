@@ -482,7 +482,7 @@ export default function App() {
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-800 rounded-b-2xl z-10" />
               <div className="w-full h-full bg-white rounded-[2rem] overflow-hidden relative">
                 <img 
-                  src="https://picsum.photos/seed/bp-final/400/800" 
+                  src="/bluepathanimation.mp4" 
                   alt="Final App Design" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
