@@ -425,7 +425,7 @@ export default function App() {
         <section id="solution" className="py-24 bg-gray-50 px-4">
           <div className="max-w-7xl mx-auto">
             <SectionHeading>Solution</SectionHeading>
-            <p className="text-2xl text-gray-700 mb-16 max-w-3xl">
+            <p className="text-2xl text-gray-700 mb-16">
               BluePath is an accessibility tool that helps guide users to the right path, whether that be a physical path or a path to their desired information. Through its interface, users can:
             </p>
 
@@ -471,7 +471,7 @@ export default function App() {
           {/* User Research */}
           <div className="mb-32">
             <h3 className="text-2xl font-bold text-blue-600 mb-6 uppercase tracking-widest">User Research</h3>
-            <p className="text-lg text-gray-600 mb-12 max-w-4xl">
+            <p className="text-lg text-gray-600 mb-12">
               In order to get a diverse set of perspectives on the experience of students with physical disabilities extracting information about and navigating to their classes, we decided to pull from firsthand accounts online, as well as an autoethnographic study completed by one of our team members who has a physical disability and a survey completed by another student with a physical disability. Here’s some of what they had to say about their experiences:
             </p>
 
