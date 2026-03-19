@@ -581,7 +581,7 @@ export default function App() {
             <p className="text-lg text-gray-600 mb-12">
               Cleaning up the aforementioned issues and transferring from paper to digital led to this final design:
             </p>
-            <div className="max-w-[550px] mx-auto aspect-[9/16] bg-gray-900 rounded-[4.5rem] p-3 shadow-2xl border-[14px] border-gray-800 relative overflow-hidden">
+            <div className="max-w-[440px] mx-auto aspect-[9/19.5] bg-gray-900 rounded-[4.5rem] p-3 shadow-2xl border-[14px] border-gray-800 relative overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-9 bg-gray-800 rounded-b-[2.5rem] z-10" />
               <div className="w-full h-full bg-black rounded-[3.5rem] overflow-hidden relative p-4">
                 <video 
@@ -643,9 +643,9 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { name: "Gianna Carlson", role: "Designer & Developer", img: "/gianna.png" },
+              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
               { name: "Wenting Zhang", role: "Designer & Developer", img: "/wenting.png" },
               { name: "Ian Limasi", role: "Designer & Developer", img: "/ian.png" },
-              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
             ].map((person, i) => (
               <motion.div 
                 key={i} 
