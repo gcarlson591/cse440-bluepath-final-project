@@ -81,7 +81,7 @@ const Navbar = () => {
     { name: 'solution', id: 'solution' },
     { name: 'design process', id: 'design-process' },
     { name: 'acknowledgment sources', id: 'sources' },
-    { name: 'the people who paved BluePath', id: 'team' },
+    { name: 'the people behind BluePath', id: 'team' },
   ];
 
   const scrollTo = (id: string) => {
