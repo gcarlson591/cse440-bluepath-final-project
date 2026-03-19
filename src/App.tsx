@@ -481,11 +481,13 @@ export default function App() {
             <div className="max-w-md mx-auto aspect-[9/19] bg-gray-900 rounded-[3rem] p-4 shadow-2xl border-[8px] border-gray-800 relative overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-800 rounded-b-2xl z-10" />
               <div className="w-full h-full bg-white rounded-[2rem] overflow-hidden relative">
-                <img 
+                <video 
                   src="/bluepathanimation.mp4" 
-                  alt="Final App Design" 
                   className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
                 />
                 <div className="absolute inset-0 bg-blue-600/10 pointer-events-none" />
               </div>
