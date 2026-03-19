@@ -425,9 +425,9 @@ export default function App() {
             
             <div className="grid md:grid-cols-3 gap-8 mb-8">
               {[
-                { title: "Smart watch app for campus insight and custom routes", img: "https://picsum.photos/seed/bp-proto1/600/800" },
-                { title: "Phone app for accessible features and reporting issues", img: "https://picsum.photos/seed/bp-proto2/600/800" },
-                { title: "Smart glasses app for real-time alerts and parking", img: "https://picsum.photos/seed/bp-proto3/600/800" },
+                { title: "Smart watch app for campus insight and custom routes", img: "/image1.png" },
+                { title: "Phone app for accessible features and reporting issues", img: "/image2.png" },
+                { title: "Smart glasses app for real-time alerts and parking", img: "/image3.png" },
               ].map((item, i) => (
                 <div key={i} className="flex flex-col items-center">
                   <div className="bg-white p-4 rounded-2xl shadow-lg border border-gray-100 w-full">
@@ -450,11 +450,11 @@ export default function App() {
                 We began developing a paper prototype of a phone app that would help accomplish our chosen tasks. This is what it looked like:
               </p>
               <Carousel images={[
-                "https://picsum.photos/seed/bp-paper1/800/1000",
-                "https://picsum.photos/seed/bp-paper2/800/1000",
-                "https://picsum.photos/seed/bp-paper3/800/1000",
-                "https://picsum.photos/seed/bp-paper4/800/1000",
-                "https://picsum.photos/seed/bp-paper5/800/1000",
+                "/caro1.png",
+                "/caro2.png",
+                "/caro3.png",
+                "/caro4.png",
+                "/caro5.png",
               ]} />
             </div>
           </div>
