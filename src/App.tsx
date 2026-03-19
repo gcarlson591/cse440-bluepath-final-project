@@ -244,7 +244,7 @@ export default function App() {
           <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-2">
             <div className="relative overflow-hidden group">
               <img 
-                src="https://picsum.photos/seed/bluepath-interior/1200/1600" 
+                src="/complete.png" 
                 alt="Modern building interior" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
@@ -257,14 +257,14 @@ export default function App() {
             </div>
             <div className="relative overflow-hidden group">
               <img 
-                src="https://picsum.photos/seed/bluepath-stairs/1200/1600" 
+                src="/erase.png" 
                 alt="Person in wheelchair near stairs" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-black/30 flex items-center justify-center p-8">
                 <h2 className="text-white text-4xl md:text-6xl font-black uppercase tracking-tighter text-center">
-                  Erase <span className="text-emerald-400">doubts</span> you have about going to class
+                  Erase <span className="text-blue-400">doubts</span> you have about going to class
                 </h2>
               </div>
             </div>
