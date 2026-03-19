@@ -231,12 +231,98 @@ const SpeechBubble = ({ quote, participant, align = 'left' }: { quote: string; p
   </div>
 );
 
+const PROTOTYPING_IMAGES = [
+  { title: "Smart watch app for campus insight and custom routes", img: "/image1.png" },
+  { title: "Phone app for accessible features and reporting issues", img: "/image2.png" },
+  { title: "Smart glasses app for real-time alerts and parking", img: "/image3.png" },
+];
+
 // --- Main App ---
 
 export default function App() {
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex + 1) % PROTOTYPING_IMAGES.length);
+    }
+  };
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((selectedImageIndex - 1 + PROTOTYPING_IMAGES.length) % PROTOTYPING_IMAGES.length);
+    }
+  };
+
+  const currentImage = selectedImageIndex !== null ? PROTOTYPING_IMAGES[selectedImageIndex] : null;
+
   return (
     <div className="min-h-screen bg-white text-gray-900 selection:bg-blue-100 selection:text-blue-900">
       <Navbar />
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {currentImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImageIndex(null)}
+            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                onClick={() => setSelectedImageIndex(null)}
+                className="absolute -top-12 right-0 text-white hover:text-blue-400 transition-colors flex items-center gap-2 font-bold z-10"
+              >
+                <X className="w-8 h-8" /> Close
+              </button>
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={handlePrev}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all z-10"
+              >
+                <ChevronLeft className="w-10 h-10" />
+              </button>
+              <button
+                onClick={handleNext}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all z-10"
+              >
+                <ChevronRight className="w-10 h-10" />
+              </button>
+
+              <div className="w-full h-full flex items-center justify-center overflow-hidden">
+                <AnimatePresence mode="wait">
+                  <motion.img 
+                    key={selectedImageIndex}
+                    src={currentImage.img} 
+                    alt={currentImage.title} 
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    className="max-w-full max-h-[75vh] object-contain rounded-xl shadow-2xl"
+                    referrerPolicy="no-referrer"
+                  />
+                </AnimatePresence>
+              </div>
+
+              <div className="mt-6 text-center">
+                <h3 className="text-white text-2xl font-bold">{currentImage.title}</h3>
+                <p className="text-gray-400 mt-2">Image {selectedImageIndex + 1} of {PROTOTYPING_IMAGES.length}</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <main className="pt-20">
         {/* Hero Section */}
@@ -283,19 +369,13 @@ export default function App() {
                 The actual experience of going to class might differ drastically from expectations set by the information gathering process.
               </p>
             </div>
-            <div className="bg-gray-50 p-8 rounded-3xl shadow-xl border border-gray-100">
-              <div className="flex flex-col gap-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="relative">
-                    <img 
-                      src="/cse440poster1.png" 
-                      alt="Actual classroom view" 
-                      className="rounded-xl shadow-sm w-full h-full object-cover"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                </div>
-              </div>
+            <div className="bg-white p-4 rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+              <img 
+                src="/cse440poster1.png" 
+                alt="BluePath Poster" 
+                className="w-full h-auto rounded-2xl shadow-sm"
+                referrerPolicy="no-referrer"
+              />
             </div>
           </div>
         </section>
@@ -424,16 +504,22 @@ export default function App() {
             </p>
             
             <div className="grid md:grid-cols-3 gap-8 mb-8">
-              {[
-                { title: "Smart watch app for campus insight and custom routes", img: "/image1.png" },
-                { title: "Phone app for accessible features and reporting issues", img: "/image2.png" },
-                { title: "Smart glasses app for real-time alerts and parking", img: "/image3.png" },
-              ].map((item, i) => (
+              {PROTOTYPING_IMAGES.map((item, i) => (
                 <div key={i} className="flex flex-col items-center">
-                  <div className="bg-white p-4 rounded-2xl shadow-lg border border-gray-100 w-full">
-                    <img src={item.img} alt={item.title} className="rounded-xl mb-4 w-full aspect-[3/4] object-cover" referrerPolicy="no-referrer" />
+                  <motion.div 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setSelectedImageIndex(i)}
+                    className="bg-white p-4 rounded-2xl shadow-lg border border-gray-100 w-full cursor-zoom-in group"
+                  >
+                    <div className="relative overflow-hidden rounded-xl mb-4">
+                      <img src={item.img} alt={item.title} className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-110" referrerPolicy="no-referrer" />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                        <Play className="text-white opacity-0 group-hover:opacity-100 scale-150 transition-all" />
+                      </div>
+                    </div>
                     <p className="text-sm font-bold text-gray-700 text-center">{item.title}</p>
-                  </div>
+                  </motion.div>
                   <GradientArrow className="mt-4" />
                 </div>
               ))}
