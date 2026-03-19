@@ -560,15 +560,6 @@ export default function App() {
                       referrerPolicy="no-referrer"
                     />
                   </div>
-
-                  {/* Hard Hat Overlay */}
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-20 text-orange-600 drop-shadow-lg z-20">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 3c-4.97 0-9 4.03-9 9h18c0-4.97-4.03-9-9-9z" />
-                      <path d="M4 12h16v2H4z" />
-                      <path d="M12 5v4" stroke="white" strokeWidth="1" />
-                    </svg>
-                  </div>
                 </div>
                 <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest">{person.role}</p>
               </div>
