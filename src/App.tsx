@@ -43,7 +43,7 @@ const Logo = () => {
       </div>
       
       {/* Arrow animation from 'a' to 'b' */}
-      <div className="w-full h-6 relative -mt-2">
+      <div className="w-full h-6 relative -mt-1">
         <svg className="w-full h-full overflow-visible" viewBox="0 0 200 24">
           <defs>
             <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -52,7 +52,7 @@ const Logo = () => {
             </linearGradient>
           </defs>
           <motion.path
-            d="M 120 4 Q 80 20 30 4"
+            d="M 110 4 Q 80 20 30 4"
             fill="none"
             stroke="url(#logo-gradient)"
             strokeWidth="2.5"
