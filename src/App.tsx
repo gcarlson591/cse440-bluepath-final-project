@@ -33,7 +33,7 @@ const InclusionIcon = ({ className }: { className?: string }) => (
 
 const Logo = () => {
   return (
-    <div className="flex flex-col items-center group cursor-pointer">
+    <div className="flex flex-col items-start group cursor-pointer">
       <div className="flex items-center gap-3">
         <div className="flex items-baseline font-bold text-4xl tracking-tight relative">
           <span className="bg-gradient-to-r from-[#4040e5] to-[#6bbab5] bg-clip-text text-transparent">
@@ -104,7 +104,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+      <div className="w-full px-8 h-20 flex items-center justify-between">
         <Logo />
         
         {/* Desktop Menu */}
@@ -237,14 +237,14 @@ const SpeechBubble = ({ quote, participant, align = 'left' }: { quote: string; p
     <div className={cn(
       "relative p-6 rounded-2xl max-w-lg shadow-lg border",
       align === 'left' 
-        ? "bg-white text-gray-800 border-gray-200 rounded-tl-none" 
+        ? "bg-blue-50 text-gray-800 border-blue-100 rounded-tl-none" 
         : "bg-blue-600 text-white border-blue-700 rounded-tr-none"
     )}>
       <p className="italic leading-relaxed">"{quote}"</p>
       <div className={cn(
         "absolute top-0 w-4 h-4",
         align === 'left' 
-          ? "-left-4 bg-white border-l border-t border-gray-200 [clip-path:polygon(100%_0,0_0,100%_100%)]" 
+          ? "-left-4 bg-blue-50 border-l border-t border-blue-100 [clip-path:polygon(100%_0,0_0,100%_100%)]" 
           : "-right-4 bg-blue-600 border-r border-t border-blue-700 [clip-path:polygon(0_0,100%_0,0_100%)]"
       )} />
     </div>
@@ -401,7 +401,7 @@ export default function App() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <SectionHeading>Problem</SectionHeading>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              <p className="text-lg text-gray-600 leading-relaxed mb-12">
                 Students with physical disabilities often face challenges with planning out the process of going to class. 
                 Contingencies have to be accounted for, accessibility needs have to be met, all the while there are 
                 disconnects between schedule information and building/classroom information. 
@@ -423,7 +423,7 @@ export default function App() {
         <section id="solution" className="py-24 bg-gray-50 px-4">
           <div className="max-w-7xl mx-auto">
             <SectionHeading>Solution</SectionHeading>
-            <p className="text-2xl text-gray-700 mb-16">
+            <p className="text-lg text-gray-600 leading-relaxed mb-12">
               BluePath is an accessibility tool that helps guide users to the right path, whether that be a physical path or a path to their desired information. Through its interface, users can:
             </p>
 
@@ -455,7 +455,7 @@ export default function App() {
                   whileHover={{ y: -10 }}
                   className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-gray-100 flex flex-col items-center text-center gap-8 group"
                 >
-                  <div className="w-full aspect-[9/25] bg-blue-50 flex items-center justify-center shadow-inner overflow-hidden relative border-4 border-gray-50">
+                  <div className="w-full aspect-[9/19] rounded-[2rem] bg-blue-50 flex items-center justify-center shadow-inner overflow-hidden relative border-4 border-gray-50">
                     {item.gif ? (
                       <img 
                         src={item.gif} 
@@ -501,8 +501,8 @@ export default function App() {
           {/* User Research */}
           <div className="mb-32">
             <h3 className="text-2xl font-bold text-blue-600 mb-6 uppercase tracking-widest">User Research</h3>
-            <p className="text-lg text-gray-600 mb-12">
-              In order to get a diverse set of perspectives on the experience of students with physical disabilities extracting information about and navigating to their classes, we decided to pull from firsthand accounts online, as well as an autoethnographic study completed by one of our team members who has a physical disability and a survey completed by another student with a physical disability. Here’s some of what they had to say about their experiences:
+            <p className="text-lg text-gray-600 leading-relaxed mb-12">
+              In order to get a diverse set of perspectives on the experience of students with physical disabilities extracting information about and navigating to their classes, we decided to pull from firsthand accounts online, as well as an autoethnographic study completed by one of our team members who has a physical disability and a survey completed by another student with a physical disability. <strong>Here’s some of what they had to say about their experiences:</strong>
             </p>
 
             <div className="grid gap-6 mb-16 relative">
@@ -551,7 +551,7 @@ export default function App() {
           {/* Task Analysis */}
           <div className="mb-32">
             <h3 className="text-2xl font-bold text-blue-600 mb-6 uppercase tracking-widest">Task Analysis</h3>
-            <p className="text-lg text-gray-600 mb-12">
+            <p className="text-lg text-gray-600 leading-relaxed mb-12">
               With the aforementioned themes in mind, we came up with a list of tasks that we thought would be important for students with physical disabilities to be able to accomplish via our interface which includes:
             </p>
             <ClipboardWidget items={[
@@ -567,7 +567,7 @@ export default function App() {
           {/* Prototyping */}
           <div className="mb-32">
             <h3 className="text-2xl font-bold text-blue-600 mb-6 uppercase tracking-widest">Prototyping</h3>
-            <p className="text-lg text-gray-600 mb-12">
+            <p className="text-lg text-gray-600 leading-relaxed mb-12">
               With a list of potential tasks for our interface in mind, we began generating potential design ideas including:
             </p>
             
@@ -590,15 +590,15 @@ export default function App() {
               ))}
             </div>
 
-            <div className="bg-blue-600 text-white p-12 rounded-[2rem] shadow-2xl mb-16">
-              <p className="text-xl leading-relaxed font-medium">
+            <div className="mb-16">
+              <p className="text-lg text-gray-600 leading-relaxed">
                 After evaluating the feasibility and relevance of each task and the form factor of each design idea, we settled on a phone app that would primarily focus on the tasks of locating buildings that house a classroom, identifying accessible features within buildings, checking the amount of foot traffic in a building, and generating personalized, accessible routes between locations on campus. We figured that both smart watches and smart glasses would prevent students with visionary problems from accessing our interface, and the aforementioned tasks best exemplified our research themes.
               </p>
             </div>
 
             <div className="text-center mb-12">
               <p className="text-lg text-gray-600 mb-8">
-                We began developing a paper prototype of a phone app that would help accomplish our chosen tasks. This is what it looked like:
+                We began developing a paper prototype of a phone app that would help accomplish our chosen tasks. <strong>This is what it looked like:</strong>
               </p>
               <Carousel 
                 images={PAPER_PROTOTYPE_IMAGES.map(img => img.img)} 
@@ -610,7 +610,7 @@ export default function App() {
           {/* Testing */}
           <div className="mb-32">
             <h3 className="text-2xl font-bold text-blue-600 mb-6 uppercase tracking-widest">Testing</h3>
-            <p className="text-lg text-gray-600 mb-12">
+            <p className="text-lg text-gray-600 leading-relaxed mb-12">
               In order to test the learnability and usability of our interface, we conducted heuristic testing, usability testing, and UI inspections on our paper prototype. This process of testing revealed key problems with our design:
             </p>
             <ClipboardWidget xed items={[
@@ -623,7 +623,7 @@ export default function App() {
           {/* Final Overview */}
           <div>
             <h3 className="text-2xl font-bold text-blue-600 mb-6 uppercase tracking-widest">Final Overview</h3>
-            <p className="text-lg text-gray-600 mb-12">
+            <p className="text-lg text-gray-600 leading-relaxed mb-12">
               Cleaning up the aforementioned issues and transferring from paper to digital led to this final design:
             </p>
             <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl bg-black relative">
@@ -644,7 +644,7 @@ export default function App() {
         <section id="sources" className="py-24 bg-gray-900 text-white px-4">
           <div className="max-w-7xl mx-auto">
             <SectionHeading light>Acknowledgment of Sources</SectionHeading>
-            <p className="text-xl text-gray-400 mb-12">We used and borrowed UI elements and concepts from a variety of sources including:</p>
+            <p className="text-lg text-gray-400 leading-relaxed mb-12">We used and borrowed UI elements and concepts from a variety of sources including:</p>
             <ul className="grid md:grid-cols-2 gap-6 text-lg">
               {[
                 { text: "The schedule view on myUW", link: "https://my.uw.edu/", label: "myUW" },
@@ -692,7 +692,7 @@ export default function App() {
               <motion.div 
                 key={i} 
                 whileHover={{ y: -10 }}
-                className="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 flex flex-col items-center text-center group"
+                className="bg-blue-50/50 rounded-3xl p-6 shadow-xl border border-blue-100 flex flex-col items-center text-center group"
               >
                 <div className="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-md border-4 border-blue-50">
                   <img 
