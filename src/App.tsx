@@ -15,6 +15,22 @@ function cn(...inputs: ClassValue[]) {
 
 // --- Components ---
 
+const InclusionIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 100 100" className={cn("w-full h-full", className)}>
+    {/* Left figure (Wheelchair) */}
+    <circle cx="38" cy="32" r="7" fill="#facc15" />
+    <path d="M38 40 C38 40 45 55 55 55 C65 55 65 75 55 85" fill="none" stroke="#f59e0b" strokeWidth="8" strokeLinecap="round" />
+    <path d="M38 40 L25 25 M38 40 L50 25" fill="none" stroke="#f59e0b" strokeWidth="6" strokeLinecap="round" />
+    <path d="M45 65 A 15 15 0 1 0 25 80" fill="none" stroke="#38bdf8" strokeWidth="8" strokeLinecap="round" />
+    
+    {/* Right figure (Standing) */}
+    <circle cx="70" cy="25" r="7" fill="#a3e635" />
+    <path d="M70 33 C70 33 60 50 65 70 C70 90 80 95 85 100" fill="none" stroke="#22c55e" strokeWidth="8" strokeLinecap="round" />
+    <path d="M70 33 L55 15 M70 33 L85 15" fill="none" stroke="#22c55e" strokeWidth="6" strokeLinecap="round" />
+    <path d="M65 70 L75 95" fill="none" stroke="#38bdf8" strokeWidth="8" strokeLinecap="round" />
+  </svg>
+);
+
 const Logo = () => {
   return (
     <div className="flex flex-col items-center group cursor-pointer">
@@ -24,8 +40,8 @@ const Logo = () => {
             BluePath
           </span>
         </div>
-        <div className="flex items-center justify-center w-10 h-10 bg-blue-50 rounded-full shadow-inner">
-          <Navigation className="w-6 h-6 text-[#4040e5]" />
+        <div className="flex items-center justify-center w-12 h-12 bg-blue-50 rounded-full shadow-inner p-1">
+          <InclusionIcon className="w-10 h-10" />
         </div>
       </div>
       
@@ -53,17 +69,6 @@ const Logo = () => {
               repeat: Infinity,
               repeatType: "loop",
               repeatDelay: 1
-            }}
-          />
-          <motion.path
-            d="M 15 4 L 22 8 L 22 0 Z"
-            fill="#4040e5"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ 
-              duration: 0.2,
-              repeat: Infinity,
-              repeatDelay: 2.8
             }}
           />
         </svg>
@@ -651,9 +656,9 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { name: "Gianna Carlson", role: "Designer & Developer", img: "/gianna.png" },
-              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
               { name: "Wenting Zhang", role: "Designer & Developer", img: "/wenting.png" },
               { name: "Ian Limasi", role: "Designer & Developer", img: "/ian.png" },
+              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
             ].map((person, i) => (
               <motion.div 
                 key={i} 
