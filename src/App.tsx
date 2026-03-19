@@ -65,10 +65,7 @@ const Logo = () => {
             animate={{ pathLength: 1, opacity: 1 }}
             transition={{ 
               duration: 2, 
-              ease: "easeInOut", 
-              repeat: Infinity,
-              repeatType: "loop",
-              repeatDelay: 1
+              ease: "easeInOut",
             }}
           />
         </svg>
@@ -96,7 +93,7 @@ const Navbar = () => {
     { name: 'problem', id: 'problem' },
     { name: 'solution', id: 'solution' },
     { name: 'design process', id: 'design-process' },
-    { name: 'acknowledgment sources', id: 'sources' },
+    { name: 'acknowledgment of sources', id: 'sources' },
     { name: 'the people behind BluePath', id: 'team' },
   ];
 
@@ -157,8 +154,8 @@ const Navbar = () => {
   );
 };
 
-const SectionHeading = ({ children, id }: { children: React.ReactNode; id?: string }) => (
-  <h2 id={id} className="text-4xl font-bold text-gray-900 mb-8 capitalize scroll-mt-24">
+const SectionHeading = ({ children, id, light = false }: { children: React.ReactNode; id?: string; light?: boolean }) => (
+  <h2 id={id} className={cn("text-4xl font-bold mb-8 capitalize scroll-mt-24", light ? "text-white" : "text-gray-900")}>
     {children}
   </h2>
 );
@@ -241,13 +238,17 @@ const ClipboardWidget = ({ items, xed = false }: { items: string[]; xed?: boolea
 const SpeechBubble = ({ quote, participant, align = 'left' }: { quote: string; participant: string; align?: 'left' | 'right' }) => (
   <div className={cn("flex flex-col gap-2 mb-4", align === 'right' ? "items-end" : "items-start")}>
     <div className={cn(
-      "relative p-6 rounded-2xl max-w-lg shadow-md",
-      align === 'left' ? "bg-blue-50 text-blue-900 rounded-tl-none" : "bg-emerald-50 text-emerald-900 rounded-tr-none"
+      "relative p-6 rounded-2xl max-w-lg shadow-lg border",
+      align === 'left' 
+        ? "bg-white text-gray-800 border-gray-200 rounded-tl-none" 
+        : "bg-blue-600 text-white border-blue-700 rounded-tr-none"
     )}>
       <p className="italic leading-relaxed">"{quote}"</p>
       <div className={cn(
         "absolute top-0 w-4 h-4",
-        align === 'left' ? "-left-4 bg-blue-50 [clip-path:polygon(100%_0,0_0,100%_100%)]" : "-right-4 bg-emerald-50 [clip-path:polygon(0_0,100%_0,0_100%)]"
+        align === 'left' 
+          ? "-left-4 bg-white border-l border-t border-gray-200 [clip-path:polygon(100%_0,0_0,100%_100%)]" 
+          : "-right-4 bg-blue-600 border-r border-t border-blue-700 [clip-path:polygon(0_0,100%_0,0_100%)]"
       )} />
     </div>
     <span className="text-sm font-semibold text-gray-500 uppercase tracking-wider">{participant}</span>
@@ -261,11 +262,11 @@ const PROTOTYPING_IMAGES = [
 ];
 
 const PAPER_PROTOTYPE_IMAGES = [
-  { title: "Paper Prototype: Home & Navigation", img: "/caro1.png" },
-  { title: "Paper Prototype: Search & Filters", img: "/caro2.png" },
-  { title: "Paper Prototype: Building Details", img: "/caro3.png" },
-  { title: "Paper Prototype: Route Selection", img: "/caro4.png" },
-  { title: "Paper Prototype: Accessibility Reports", img: "/caro5.png" },
+  { title: "", img: "/caro1.png" },
+  { title: "", img: "/caro2.png" },
+  { title: "", img: "/caro3.png" },
+  { title: "", img: "/caro4.png" },
+  { title: "", img: "/caro5.png" },
 ];
 
 // --- Main App ---
@@ -369,32 +370,32 @@ export default function App() {
         {/* Hero Section */}
         <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 grid grid-cols-1 md:grid-cols-2">
-            <div className="relative overflow-hidden group">
-              <img 
-                src="/complete.png" 
-                alt="Modern building interior" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-black/30 flex items-start justify-center p-8 pt-8 md:pt-12">
-                <h2 className="text-white text-5xl md:text-7xl font-black uppercase tracking-tighter text-center">
-                  Complete the <span className="text-blue-400">picture</span>
-                </h2>
+              <div className="relative overflow-hidden group">
+                <img 
+                  src="/complete.png" 
+                  alt="Modern building interior" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-black/50 flex items-start justify-center p-8 pt-8 md:pt-12">
+                  <h2 className="text-white text-5xl md:text-7xl font-black uppercase tracking-tighter text-center drop-shadow-2xl">
+                    Complete the <span className="text-blue-400">picture</span>
+                  </h2>
+                </div>
               </div>
-            </div>
-            <div className="relative overflow-hidden group">
-              <img 
-                src="/erase.png" 
-                alt="Person in wheelchair near stairs" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-black/30 flex items-start justify-center p-8 pt-8 md:pt-12">
-                <h2 className="text-white text-4xl md:text-6xl font-black uppercase tracking-tighter text-center">
-                  Erase <span className="text-blue-400">doubts</span> you have about going to class
-                </h2>
+              <div className="relative overflow-hidden group">
+                <img 
+                  src="/erase.png" 
+                  alt="Person in wheelchair near stairs" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-black/50 flex items-start justify-center p-8 pt-8 md:pt-12">
+                  <h2 className="text-white text-5xl md:text-7xl font-black uppercase tracking-tighter text-center drop-shadow-2xl">
+                    Erase <span className="text-blue-400">doubts</span> you have about going to class
+                  </h2>
+                </div>
               </div>
-            </div>
           </div>
         </section>
 
@@ -556,7 +557,6 @@ export default function App() {
                     </div>
                     <p className="text-sm font-bold text-gray-700 text-center">{item.title}</p>
                   </motion.div>
-                  <GradientArrow className="mt-4" />
                 </div>
               ))}
             </div>
@@ -614,7 +614,7 @@ export default function App() {
         {/* Acknowledgment of Sources */}
         <section id="sources" className="py-24 bg-gray-900 text-white px-4">
           <div className="max-w-7xl mx-auto">
-            <SectionHeading>Acknowledgment of Sources</SectionHeading>
+            <SectionHeading light>Acknowledgment of Sources</SectionHeading>
             <p className="text-xl text-gray-400 mb-12">We used and borrowed UI elements and concepts from a variety of sources including:</p>
             <ul className="grid md:grid-cols-2 gap-6 text-lg">
               {[
@@ -656,9 +656,9 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { name: "Gianna Carlson", role: "Designer & Developer", img: "/gianna.png" },
+              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
               { name: "Wenting Zhang", role: "Designer & Developer", img: "/wenting.png" },
               { name: "Ian Limasi", role: "Designer & Developer", img: "/ian.png" },
-              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
             ].map((person, i) => (
               <motion.div 
                 key={i} 
