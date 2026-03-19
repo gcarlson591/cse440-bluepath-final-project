@@ -223,7 +223,7 @@ const ClipboardWidget = ({ items, xed = false }: { items: string[]; xed?: boolea
 );
 
 const SpeechBubble = ({ quote, participant, align = 'left' }: { quote: string; participant: string; align?: 'left' | 'right' }) => (
-  <div className={cn("flex flex-col gap-2 mb-8", align === 'right' ? "items-end" : "items-start")}>
+  <div className={cn("flex flex-col gap-2 mb-4", align === 'right' ? "items-end" : "items-start")}>
     <div className={cn(
       "relative p-6 rounded-2xl max-w-lg shadow-md",
       align === 'left' ? "bg-blue-50 text-blue-900 rounded-tl-none" : "bg-emerald-50 text-emerald-900 rounded-tr-none"
@@ -459,13 +459,12 @@ export default function App() {
               In order to get a diverse set of perspectives on the experience of students with physical disabilities extracting information about and navigating to their classes, we decided to pull from firsthand accounts online, as well as an autoethnographic study completed by one of our team members who has a physical disability and a survey completed by another student with a physical disability. Here’s some of what they had to say about their experiences:
             </p>
 
-            <div className="grid gap-8 mb-16 relative">
+            <div className="grid gap-6 mb-16 relative">
               <div className="flex flex-col items-start">
                 <SpeechBubble 
                   quote="I have taken orientation and mobility training to know my way around campus…[but] depending on the weather, brightness outside, activity of people around, or if I'm distracted in the slightest, I struggle to find my way around"
                   participant="Participant 1: college student with progressive vision loss"
                 />
-                <GradientArrow className="ml-12 -mt-4 mb-4 rotate-0" />
               </div>
               <div className="flex flex-col items-end">
                 <SpeechBubble 
@@ -473,14 +472,12 @@ export default function App() {
                   participant="Participant 2: college student with Charcot-Marie-Tooth disease"
                   align="right"
                 />
-                <GradientArrow className="mr-12 -mt-4 mb-4 rotate-0" />
               </div>
               <div className="flex flex-col items-start">
                 <SpeechBubble 
                   quote="Just the physical act of getting to my classes proved to be a challenge, particularly on a relatively older campus like [alma mater’s]. I needed to schedule my time appropriately to make sure that I can get everywhere I needed to go in a reasonable timeframe. I also needed to become a good self-advocate when something was wrong"
                   participant="Participant 3: college student with cerebral palsy"
                 />
-                <GradientArrow className="ml-12 -mt-4 mb-4 rotate-0" />
               </div>
             </div>
 
@@ -584,12 +581,12 @@ export default function App() {
             <p className="text-lg text-gray-600 mb-12">
               Cleaning up the aforementioned issues and transferring from paper to digital led to this final design:
             </p>
-            <div className="max-w-[400px] mx-auto aspect-[9/19.5] bg-gray-900 rounded-[3.5rem] p-3 shadow-2xl border-[10px] border-gray-800 relative overflow-hidden">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-7 bg-gray-800 rounded-b-3xl z-10" />
-              <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
+            <div className="max-w-[550px] mx-auto aspect-[9/16] bg-gray-900 rounded-[4.5rem] p-3 shadow-2xl border-[14px] border-gray-800 relative overflow-hidden">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-9 bg-gray-800 rounded-b-[2.5rem] z-10" />
+              <div className="w-full h-full bg-black rounded-[3.5rem] overflow-hidden relative">
                 <video 
                   src="/bluepathanimation.mp4" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   autoPlay 
                   loop 
                   muted 
