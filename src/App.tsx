@@ -17,44 +17,55 @@ function cn(...inputs: ClassValue[]) {
 
 const Logo = () => {
   return (
-    <div className="flex items-center gap-3 relative group cursor-pointer">
-      <div className="flex items-baseline font-bold text-4xl tracking-tight relative">
-        <span className="text-blue-600 drop-shadow-[0_2px_2px_rgba(0,0,0,0.2)]">B</span>
-        <span className="text-blue-600 drop-shadow-[0_2px_2px_rgba(0,0,0,0.2)] relative">
-          lue
-          {/* Curved Animated Arrow from B area towards A area */}
-          <svg className="absolute -bottom-6 -left-4 w-32 h-8 pointer-events-none" viewBox="0 0 120 30">
-            <motion.path
-              d="M 10 10 Q 60 40 110 10"
-              fill="none"
-              stroke="url(#logo-gradient)"
-              strokeWidth="3"
-              strokeDasharray="6 4"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 1 }}
-              transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
-            />
-            <motion.path
-              d="M 10 10 L 18 14 L 18 6 Z"
-              fill="url(#logo-gradient)"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2.5 }}
-              style={{ transform: 'rotate(180deg)', transformOrigin: '10px 10px' }}
-            />
-            <defs>
-              <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#2563eb" />
-                <stop offset="100%" stopColor="#60a5fa" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </span>
-        <span className="text-blue-600 drop-shadow-[0_2px_2px_rgba(0,0,0,0.2)]">Path</span>
+    <div className="flex flex-col items-center group cursor-pointer">
+      <div className="flex items-center gap-3">
+        <div className="flex items-baseline font-bold text-4xl tracking-tight relative">
+          <span className="bg-gradient-to-r from-[#4040e5] to-[#6bbab5] bg-clip-text text-transparent">
+            BluePath
+          </span>
+        </div>
+        <div className="flex items-center justify-center w-10 h-10 bg-blue-50 rounded-full shadow-inner">
+          <Navigation className="w-6 h-6 text-[#4040e5]" />
+        </div>
       </div>
-      <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full shadow-inner">
-        <svg viewBox="0 0 24 24" className="w-8 h-8 text-blue-600 fill-current">
-          <path d="M12,2c1.1,0,2,0.9,2,2s-0.9,2-2,2s-2-0.9-2-2S10.9,2,12,2z M19,13v-2c-1.54,0-3.11-0.3-4.54-0.84l-1.71-0.64 C12.28,9.33,11.76,9.17,11.23,9.17c-0.33,0-0.67,0.06-0.98,0.18L6.4,10.82C5.56,11.16,5,11.97,5,12.87V19h2v-5.13l2.25-0.9V22h2v-5h2 v5h2v-7.14l2.25,0.9V19h2v-6H19z" />
+      
+      {/* Arrow animation from 'a' to 'b' */}
+      <div className="w-full h-6 relative -mt-1">
+        <svg className="w-full h-full overflow-visible" viewBox="0 0 200 24">
+          <defs>
+            <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#4040e5" />
+              <stop offset="100%" stopColor="#6bbab5" />
+            </linearGradient>
+          </defs>
+          <motion.path
+            d="M 115 4 Q 60 20 15 4"
+            fill="none"
+            stroke="url(#logo-gradient)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeDasharray="5 3"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{ 
+              duration: 2, 
+              ease: "easeInOut", 
+              repeat: Infinity,
+              repeatType: "loop",
+              repeatDelay: 1
+            }}
+          />
+          <motion.path
+            d="M 15 4 L 22 8 L 22 0 Z"
+            fill="#4040e5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ 
+              duration: 0.2,
+              repeat: Infinity,
+              repeatDelay: 2.8
+            }}
+          />
         </svg>
       </div>
     </div>
@@ -66,8 +77,8 @@ const GradientArrow = ({ className }: { className?: string }) => (
     <path d="M24 4L24 44M24 44L12 32M24 44L36 32" fill="none" stroke="url(#arrow-gradient)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
     <defs>
       <linearGradient id="arrow-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#2563eb" />
-        <stop offset="100%" stopColor="#60a5fa" />
+        <stop offset="0%" stopColor="#4040e5" />
+        <stop offset="100%" stopColor="#6bbab5" />
       </linearGradient>
     </defs>
   </svg>
@@ -360,7 +371,7 @@ export default function App() {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-black/30 flex items-center justify-center p-8">
+              <div className="absolute inset-0 bg-black/30 flex items-start justify-center p-8 pt-32 md:pt-48">
                 <h2 className="text-white text-5xl md:text-7xl font-black uppercase tracking-tighter text-center">
                   Complete the <span className="text-blue-400">picture</span>
                 </h2>
@@ -373,7 +384,7 @@ export default function App() {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-black/30 flex items-center justify-center p-8">
+              <div className="absolute inset-0 bg-black/30 flex items-start justify-center p-8 pt-32 md:pt-48">
                 <h2 className="text-white text-4xl md:text-6xl font-black uppercase tracking-tighter text-center">
                   Erase <span className="text-blue-400">doubts</span> you have about going to class
                 </h2>
@@ -534,9 +545,9 @@ export default function App() {
                     onClick={() => setLightbox({ images: PROTOTYPING_IMAGES, index: i })}
                     className="bg-white p-4 rounded-2xl shadow-lg border border-gray-100 w-full cursor-zoom-in group"
                   >
-                    <div className="relative overflow-hidden rounded-xl mb-4">
-                      <img src={item.img} alt={item.title} className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-110" referrerPolicy="no-referrer" />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center" />
+                    <div className="relative overflow-hidden rounded-xl mb-4 bg-gray-50 flex items-center justify-center h-80">
+                      <img src={item.img} alt={item.title} className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-110" referrerPolicy="no-referrer" />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center" />
                     </div>
                     <p className="text-sm font-bold text-gray-700 text-center">{item.title}</p>
                   </motion.div>
@@ -581,19 +592,16 @@ export default function App() {
             <p className="text-lg text-gray-600 mb-12">
               Cleaning up the aforementioned issues and transferring from paper to digital led to this final design:
             </p>
-            <div className="max-w-md mx-auto aspect-[9/19] bg-gray-900 rounded-[3rem] p-4 shadow-2xl border-[8px] border-gray-800 relative overflow-hidden">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-gray-800 rounded-b-2xl z-10" />
-              <div className="w-full h-full bg-white rounded-[2rem] overflow-hidden relative">
-                <video 
-                  src="/bluepathanimation.mp4" 
-                  className="w-full h-full object-cover"
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                />
-                <div className="absolute inset-0 bg-blue-600/10 pointer-events-none" />
-              </div>
+            <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl bg-black relative">
+              <video 
+                src="/bluepathanimation.mp4" 
+                className="w-full h-auto max-h-[80vh] object-contain"
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+              />
+              <div className="absolute inset-0 bg-blue-600/5 pointer-events-none" />
             </div>
           </div>
         </section>
@@ -643,9 +651,9 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { name: "Gianna Carlson", role: "Designer & Developer", img: "/gianna.png" },
-              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
               { name: "Wenting Zhang", role: "Designer & Developer", img: "/wenting.png" },
               { name: "Ian Limasi", role: "Designer & Developer", img: "/ian.png" },
+              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
             ].map((person, i) => (
               <motion.div 
                 key={i} 
