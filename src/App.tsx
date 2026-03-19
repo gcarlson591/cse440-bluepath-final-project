@@ -52,7 +52,7 @@ const Logo = () => {
             </linearGradient>
           </defs>
           <motion.path
-            d="M 95 4 Q 55 20 15 4"
+            d="M 75 4 Q 40 20 5 4"
             fill="none"
             stroke="url(#logo-gradient)"
             strokeWidth="2.5"
@@ -374,7 +374,7 @@ export default function App() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-black/50 flex items-end justify-center p-8 pb-8 md:pb-12">
+                <div className="absolute inset-0 bg-black/50 flex items-start justify-center p-8 pt-8 md:pt-12">
                   <h2 className="text-white text-4xl md:text-6xl font-black uppercase tracking-tighter text-center drop-shadow-2xl">
                     Complete the <span className="text-blue-400">picture</span>
                   </h2>
@@ -387,7 +387,7 @@ export default function App() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-black/50 flex items-end justify-center p-8 pb-8 md:pb-12">
+                <div className="absolute inset-0 bg-black/50 flex items-start justify-center p-8 pt-8 md:pt-12">
                   <h2 className="text-white text-4xl md:text-6xl font-black uppercase tracking-tighter text-center drop-shadow-2xl">
                     Erase <span className="text-blue-400">doubts</span> you have about going to class
                   </h2>
