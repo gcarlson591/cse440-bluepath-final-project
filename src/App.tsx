@@ -453,9 +453,9 @@ export default function App() {
                 <motion.div 
                   key={i}
                   whileHover={{ y: -10 }}
-                  className="bg-white p-6 rounded-3xl shadow-lg border border-gray-100 flex flex-col items-center text-center gap-6 group"
+                  className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-gray-100 flex flex-col items-center text-center gap-8 group"
                 >
-                  <div className="w-full aspect-video rounded-2xl bg-blue-50 flex items-center justify-center shadow-inner overflow-hidden relative">
+                  <div className="w-full aspect-[2/3] rounded-[2rem] bg-blue-50 flex items-center justify-center shadow-inner overflow-hidden relative border-4 border-gray-50">
                     {item.gif ? (
                       <img 
                         src={item.gif} 
@@ -464,15 +464,17 @@ export default function App() {
                         referrerPolicy="no-referrer"
                       />
                     ) : (
-                      <div className="flex flex-col items-center gap-2">
-                        {item.icon}
-                        <span className="text-[10px] text-blue-300 font-mono uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                          GIF Embed Area
+                      <div className="flex flex-col items-center gap-4">
+                        <div className="p-4 bg-white rounded-2xl shadow-sm">
+                          {item.icon}
+                        </div>
+                        <span className="text-xs text-blue-400 font-mono uppercase tracking-[0.2em] opacity-40 group-hover:opacity-100 transition-opacity">
+                          GIF Preview Area
                         </span>
                       </div>
                     )}
                   </div>
-                  <p className="font-bold text-gray-800 leading-tight text-sm px-2">{item.title}</p>
+                  <p className="font-bold text-gray-900 leading-tight text-lg px-2">{item.title}</p>
                 </motion.div>
               ))}
             </div>
