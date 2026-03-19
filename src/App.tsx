@@ -40,13 +40,10 @@ const Logo = () => {
             BluePath
           </span>
         </div>
-        <div className="flex items-center justify-center w-12 h-12 bg-blue-50 rounded-full shadow-inner p-1">
-          <InclusionIcon className="w-10 h-10" />
-        </div>
       </div>
       
       {/* Arrow animation from 'a' to 'b' */}
-      <div className="w-full h-6 relative -mt-1">
+      <div className="w-full h-6 relative -mt-3">
         <svg className="w-full h-full overflow-visible" viewBox="0 0 200 24">
           <defs>
             <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -377,8 +374,8 @@ export default function App() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-black/50 flex items-start justify-center p-8 pt-8 md:pt-12">
-                  <h2 className="text-white text-5xl md:text-7xl font-black uppercase tracking-tighter text-center drop-shadow-2xl">
+                <div className="absolute inset-0 bg-black/50 flex items-end justify-center p-8 pb-8 md:pb-12">
+                  <h2 className="text-white text-4xl md:text-6xl font-black uppercase tracking-tighter text-center drop-shadow-2xl">
                     Complete the <span className="text-blue-400">picture</span>
                   </h2>
                 </div>
@@ -390,8 +387,8 @@ export default function App() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-black/50 flex items-start justify-center p-8 pt-8 md:pt-12">
-                  <h2 className="text-white text-5xl md:text-7xl font-black uppercase tracking-tighter text-center drop-shadow-2xl">
+                <div className="absolute inset-0 bg-black/50 flex items-end justify-center p-8 pb-8 md:pb-12">
+                  <h2 className="text-white text-4xl md:text-6xl font-black uppercase tracking-tighter text-center drop-shadow-2xl">
                     Erase <span className="text-blue-400">doubts</span> you have about going to class
                   </h2>
                 </div>
@@ -656,9 +653,9 @@ export default function App() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { name: "Gianna Carlson", role: "Designer & Developer", img: "/gianna.png" },
+              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
               { name: "Wenting Zhang", role: "Designer & Developer", img: "/wenting.png" },
               { name: "Ian Limasi", role: "Designer & Developer", img: "/ian.png" },
-              { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
             ].map((person, i) => (
               <motion.div 
                 key={i} 
