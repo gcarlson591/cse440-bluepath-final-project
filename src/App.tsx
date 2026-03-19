@@ -147,11 +147,17 @@ const SectionHeading = ({ children, id }: { children: React.ReactNode; id?: stri
   </h2>
 );
 
-const Carousel = ({ images }: { images: string[] }) => {
+const Carousel = ({ images, onImageClick }: { images: string[]; onImageClick?: (index: number) => void }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const prev = () => setCurrentIndex((curr) => (curr === 0 ? images.length - 1 : curr - 1));
-  const next = () => setCurrentIndex((curr) => (curr === images.length - 1 ? 0 : curr + 1));
+  const prev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((curr) => (curr === 0 ? images.length - 1 : curr - 1));
+  };
+  const next = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((curr) => (curr === images.length - 1 ? 0 : curr + 1));
+  };
 
   return (
     <div className="relative group max-w-2xl mx-auto overflow-hidden rounded-2xl shadow-2xl bg-gray-100 aspect-[4/3]">
@@ -163,7 +169,8 @@ const Carousel = ({ images }: { images: string[] }) => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.3 }}
-          className="w-full h-full object-contain"
+          onClick={() => onImageClick?.(currentIndex)}
+          className="w-full h-full object-contain cursor-zoom-in"
           referrerPolicy="no-referrer"
         />
       </AnimatePresence>
@@ -237,26 +244,40 @@ const PROTOTYPING_IMAGES = [
   { title: "Smart glasses app for real-time alerts and parking", img: "/image3.png" },
 ];
 
+const PAPER_PROTOTYPE_IMAGES = [
+  { title: "Paper Prototype: Home & Navigation", img: "/caro1.png" },
+  { title: "Paper Prototype: Search & Filters", img: "/caro2.png" },
+  { title: "Paper Prototype: Building Details", img: "/caro3.png" },
+  { title: "Paper Prototype: Route Selection", img: "/caro4.png" },
+  { title: "Paper Prototype: Accessibility Reports", img: "/caro5.png" },
+];
+
 // --- Main App ---
 
 export default function App() {
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [lightbox, setLightbox] = useState<{ images: { title: string; img: string }[]; index: number } | null>(null);
 
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((selectedImageIndex + 1) % PROTOTYPING_IMAGES.length);
+    if (lightbox) {
+      setLightbox({
+        ...lightbox,
+        index: (lightbox.index + 1) % lightbox.images.length
+      });
     }
   };
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((selectedImageIndex - 1 + PROTOTYPING_IMAGES.length) % PROTOTYPING_IMAGES.length);
+    if (lightbox) {
+      setLightbox({
+        ...lightbox,
+        index: (lightbox.index - 1 + lightbox.images.length) % lightbox.images.length
+      });
     }
   };
 
-  const currentImage = selectedImageIndex !== null ? PROTOTYPING_IMAGES[selectedImageIndex] : null;
+  const currentImage = lightbox ? lightbox.images[lightbox.index] : null;
 
   return (
     <div className="min-h-screen bg-white text-gray-900 selection:bg-blue-100 selection:text-blue-900">
@@ -264,12 +285,12 @@ export default function App() {
 
       {/* Lightbox Modal */}
       <AnimatePresence>
-        {currentImage && (
+        {lightbox && currentImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedImageIndex(null)}
+            onClick={() => setLightbox(null)}
             className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
           >
             <motion.div
@@ -280,30 +301,34 @@ export default function App() {
               onClick={(e) => e.stopPropagation()}
             >
               <button 
-                onClick={() => setSelectedImageIndex(null)}
+                onClick={() => setLightbox(null)}
                 className="absolute -top-12 right-0 text-white hover:text-blue-400 transition-colors flex items-center gap-2 font-bold z-10"
               >
                 <X className="w-8 h-8" /> Close
               </button>
 
               {/* Navigation Arrows */}
-              <button
-                onClick={handlePrev}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all z-10"
-              >
-                <ChevronLeft className="w-10 h-10" />
-              </button>
-              <button
-                onClick={handleNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all z-10"
-              >
-                <ChevronRight className="w-10 h-10" />
-              </button>
+              {lightbox.images.length > 1 && (
+                <>
+                  <button
+                    onClick={handlePrev}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 p-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all z-10"
+                  >
+                    <ChevronLeft className="w-10 h-10" />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-4 bg-white/10 hover:bg-white/20 rounded-full text-white transition-all z-10"
+                  >
+                    <ChevronRight className="w-10 h-10" />
+                  </button>
+                </>
+              )}
 
               <div className="w-full h-full flex items-center justify-center overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.img 
-                    key={selectedImageIndex}
+                    key={lightbox.index}
                     src={currentImage.img} 
                     alt={currentImage.title} 
                     initial={{ opacity: 0, x: 20 }}
@@ -317,7 +342,7 @@ export default function App() {
 
               <div className="mt-6 text-center">
                 <h3 className="text-white text-2xl font-bold">{currentImage.title}</h3>
-                <p className="text-gray-400 mt-2">Image {selectedImageIndex + 1} of {PROTOTYPING_IMAGES.length}</p>
+                <p className="text-gray-400 mt-2">Image {lightbox.index + 1} of {lightbox.images.length}</p>
               </div>
             </motion.div>
           </motion.div>
@@ -509,14 +534,12 @@ export default function App() {
                   <motion.div 
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    onClick={() => setSelectedImageIndex(i)}
+                    onClick={() => setLightbox({ images: PROTOTYPING_IMAGES, index: i })}
                     className="bg-white p-4 rounded-2xl shadow-lg border border-gray-100 w-full cursor-zoom-in group"
                   >
                     <div className="relative overflow-hidden rounded-xl mb-4">
                       <img src={item.img} alt={item.title} className="w-full aspect-[3/4] object-cover transition-transform duration-500 group-hover:scale-110" referrerPolicy="no-referrer" />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                        <Play className="text-white opacity-0 group-hover:opacity-100 scale-150 transition-all" />
-                      </div>
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center" />
                     </div>
                     <p className="text-sm font-bold text-gray-700 text-center">{item.title}</p>
                   </motion.div>
@@ -535,13 +558,10 @@ export default function App() {
               <p className="text-lg text-gray-600 mb-8">
                 We began developing a paper prototype of a phone app that would help accomplish our chosen tasks. This is what it looked like:
               </p>
-              <Carousel images={[
-                "/caro1.png",
-                "/caro2.png",
-                "/caro3.png",
-                "/caro4.png",
-                "/caro5.png",
-              ]} />
+              <Carousel 
+                images={PAPER_PROTOTYPE_IMAGES.map(img => img.img)} 
+                onImageClick={(index) => setLightbox({ images: PAPER_PROTOTYPE_IMAGES, index })}
+              />
             </div>
           </div>
 
