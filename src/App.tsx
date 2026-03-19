@@ -52,7 +52,7 @@ const Logo = () => {
             </linearGradient>
           </defs>
           <motion.path
-            d="M 130 4 Q 85 20 40 4"
+            d="M 120 4 Q 80 20 30 4"
             fill="none"
             stroke="url(#logo-gradient)"
             strokeWidth="2.5"
