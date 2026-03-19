@@ -455,7 +455,7 @@ export default function App() {
                   whileHover={{ y: -10 }}
                   className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-gray-100 flex flex-col items-center text-center gap-8 group"
                 >
-                  <div className="w-full aspect-[2/3] rounded-[2rem] bg-blue-50 flex items-center justify-center shadow-inner overflow-hidden relative border-4 border-gray-50">
+                  <div className="w-full aspect-[9/16] rounded-[2rem] bg-blue-50 flex items-center justify-center shadow-inner overflow-hidden relative border-4 border-gray-50">
                     {item.gif ? (
                       <img 
                         src={item.gif} 
