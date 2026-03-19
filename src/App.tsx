@@ -583,7 +583,7 @@ export default function App() {
             </p>
             <div className="max-w-[550px] mx-auto aspect-[9/16] bg-gray-900 rounded-[4.5rem] p-3 shadow-2xl border-[14px] border-gray-800 relative overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-9 bg-gray-800 rounded-b-[2.5rem] z-10" />
-              <div className="w-full h-full bg-black rounded-[3.5rem] overflow-hidden relative">
+              <div className="w-full h-full bg-black rounded-[3.5rem] overflow-hidden relative p-4">
                 <video 
                   src="/bluepathanimation.mp4" 
                   className="w-full h-full object-contain"
@@ -639,35 +639,30 @@ export default function App() {
 
         {/* Team Section */}
         <section id="team" className="py-24 px-4 max-w-7xl mx-auto">
-          <SectionHeading>The people who paved BluePath</SectionHeading>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+          <SectionHeading>The people behind BluePath</SectionHeading>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { name: "Gianna Carlson", role: "Designer & Developer", img: "/gianna.png" },
               { name: "Wenting Zhang", role: "Designer & Developer", img: "/wenting.png" },
               { name: "Ian Limasi", role: "Designer & Developer", img: "/ian.png" },
               { name: "Yuta Fukazawa", role: "Designer & Developer", img: "/yuta.png" },
             ].map((person, i) => (
-              <div key={i} className="flex flex-col items-center text-center group">
-                <p className="text-lg font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">{person.name}</p>
-                <div className="relative w-48 h-48 mb-4">
-                  {/* Worker Icon Background (Vest/Body) */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-40 h-32 bg-orange-500 rounded-t-[4rem] flex flex-col items-center pt-4">
-                    <div className="w-8 h-full bg-white/30 absolute left-8 top-0" />
-                    <div className="w-8 h-full bg-white/30 absolute right-8 top-0" />
-                  </div>
-                  
-                  {/* Face (Oval Crop) */}
-                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-36 bg-gray-200 rounded-[50%] overflow-hidden border-4 border-white shadow-md z-10">
-                    <img 
-                      src={person.img} 
-                      alt={person.name} 
-                      className="w-full h-full object-cover" 
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
+              <motion.div 
+                key={i} 
+                whileHover={{ y: -10 }}
+                className="bg-white rounded-3xl p-6 shadow-xl border border-gray-100 flex flex-col items-center text-center group"
+              >
+                <div className="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-md border-4 border-blue-50">
+                  <img 
+                    src={person.img} 
+                    alt={person.name} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
-                <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest">{person.role}</p>
-              </div>
+                <h4 className="text-xl font-bold text-gray-900 mb-2">{person.name}</h4>
+                <p className="text-sm font-semibold text-blue-600 uppercase tracking-widest">{person.role}</p>
+              </motion.div>
             ))}
           </div>
         </section>
